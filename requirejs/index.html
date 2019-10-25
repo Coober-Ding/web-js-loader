@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Sample Project</title>
+    </head>
+    <body>
+        <h1>My Sample Project</h1>
+        <!-- data-main attribute tells require.js to load
+        scripts/main.js after require.js loads. -->
+        <script src="./require.js"></script>
+        <script>
+            window.setTimeout(function () {
+                debugger
+                require(['circle-b.js'], function (b) {
+                    debugger
+                    b.foo()
+                })
+            }, 100)
+        </script>
+    </body>
+</html>

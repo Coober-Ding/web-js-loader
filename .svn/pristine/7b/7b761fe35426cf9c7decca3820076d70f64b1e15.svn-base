@@ -1,0 +1,20 @@
+import Context from './Context.js'
+import {asyncImport, mountCss} from './webpack-runtime.js'
+window.entropyBoot = {
+  run (config) {
+    if (window == null) {
+      throw new Error('the current environment is not browser env ')
+    }
+
+    let ctx = new Context(config)
+    window.require = ctx.require.bind(ctx)
+    window.define = ctx.define.bind(ctx)
+    window.define.rename = ctx.rename.bind(ctx)
+    window.define.anonymous = ctx.anonymous.bind(ctx)
+    window.define.amd = true
+    
+    window.asyncImport = asyncImport
+    window.mountCss = mountCss
+  }
+}
+

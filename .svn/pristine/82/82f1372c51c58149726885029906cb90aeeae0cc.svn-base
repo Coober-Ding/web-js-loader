@@ -1,0 +1,9 @@
+define("/foo.vue", ["/bar.vue"], function (bar) {
+  console.log('foo')
+})
+
+define("/bar.vue", [], function (bar) {
+  console.log('bar')
+})
+
+define.anonymous("/foo.vue")

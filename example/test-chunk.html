@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Sample Project</title>
+    </head>
+    <body>
+        <h1>My Sample Project</h1>
+        <!-- data-main attribute tells require.js to load
+        scripts/main.js after require.js loads. -->
+        <script src="../dist/bootstrap.js"></script>
+        <script>
+          debugger
+          entropyBoot.run({
+            basePath: '.',
+            chunks: {
+              '/chunk.js': ['/a.js', '/b.js']
+            }
+          })
+          require(['/a.js'], function (main) {
+            alert('success')
+          }, function (err) {
+            alert('fuck up')
+            throw err
+          })
+        </script>
+    </body>
+</html>
