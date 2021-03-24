@@ -8,8 +8,7 @@ export default class ModuleFactory {
   getModule (name, definition) {
     let moduleId = name
     // 对xui的queryString进行hash处理
-    let extName = getExtName(name)
-    if ( extName== 'xui' || extName == 'xuc') {
+    if (getExtName(name) == 'xui') {
       let xuiQsHash = getQsHash(name)
       if (xuiQsHash != null) {
         moduleId = getUri(name) + xuiQsHash
